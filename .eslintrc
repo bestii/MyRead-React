@@ -20,6 +20,11 @@
         "no-unused-vars": "warn",
         "constructor-super": "warn",
         "valid-typeof": "warn",
-        "no-extra-semi":"error"
-    }
+        "no-extra-semi":"error",
+        "react/jsx-uses-react": 1,
+        "react/jsx-uses-vars": 1
+    },
+    "extends": [
+        "plugin:react/recommended"
+    ]
 }
