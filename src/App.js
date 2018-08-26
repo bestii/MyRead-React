@@ -7,20 +7,25 @@ import BookList from './BookList';
 
 
 class BooksApp extends React.Component {
+
+  // Component state
   state = {
     books: []
   }
 
+  // Called after the component is mounted
   componentDidMount() {
     this.getBooks();
   }
 
+  // Function to get all shelf books 
   getBooks = () => {
     BooksAPI.getAll().then((books) => {
       this.setState({ books })
     })
   }
 
+  // Function to update the book shelf
   changeShelf = (book, shelf) => {
     BooksAPI.update(book, shelf).then(() => {
       this.getBooks();
@@ -45,4 +50,4 @@ class BooksApp extends React.Component {
   }
 }
 
-export default BooksApp
+export default BooksApp;

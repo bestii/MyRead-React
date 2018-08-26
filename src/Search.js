@@ -4,22 +4,27 @@ import PropTypes from 'prop-types'
 import * as BooksAPI from './BooksAPI'
 import Book from './Book';
 
+// Search Component
 class Search extends Component {
 
+    // Component State
     state = {
         query: '',
         resultBooks: [],
-        searchErorr: false
+        noResults: false
     }
 
+    // Funtion to update query
     updateQuery = (query) => {
         this.setState({ query: query })
     }
 
-    updateResults = (resultBooks, searchError) => {
-        this.setState({ resultBooks: resultBooks, searchErorr: searchError })
+    // Funtion to update results
+    updateResults = (resultBooks, noResults) => {
+        this.setState({ resultBooks: resultBooks, noResults: noResults })
     }
 
+    // Function to search for books
     searchBooks = (event) => {
         const query = event.target.value.trim();
         this.updateQuery(query);
@@ -33,8 +38,10 @@ class Search extends Component {
     }
 
     render() {
-        const { query, resultBooks, searchErorr } = this.state;
+
+        const { query, resultBooks, noResults } = this.state;
         const { books, changeShelf } = this.props;
+
         return (
             <div className="search-books">
                 <div className="search-books-bar">
@@ -49,13 +56,15 @@ class Search extends Component {
                 <div className="search-books-results">
                     <ol className="books-grid">
                         {
+                            /* Display Book component for each book in the result */
                             resultBooks.map(book => (
                                 <Book key={book.id} book={book} books={books} changeShelf={changeShelf} />
                             ))
                         }
                     </ol>
                     {
-                        searchErorr && (
+                        /* Display incase of no result is found */
+                        noResults && (
                             <div>
                                 <div>
                                     <h3>No matching results for the current search. Please try a different keyword for search.</h3>
@@ -69,9 +78,10 @@ class Search extends Component {
     }
 }
 
+// PropTypes for Search component
 Search.propTypes = {
     books: PropTypes.array.isRequired,
     changeShelf: PropTypes.func.isRequired
-}
+};
 
 export default Search;
