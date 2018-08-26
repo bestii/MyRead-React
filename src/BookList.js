@@ -1,16 +1,16 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types'
 import Bookshelf from './BookShelf';
 
-class BookList extends Component {
+function BookList(props) {
 
-    render() {
-        const { books } = this.props;
+        const { books } = props;
         const shelfs = [
             { type: 'currentlyReading', title: 'Currently Reading' },
             { type: 'wantToRead', title: 'Want to Read' },
-            { type: 'read', title: 'Read' }]
+            { type: 'read', title: 'Read' }];
+
         return (
             <div className="list-books">
                 <div className="list-books-title">
@@ -32,7 +32,7 @@ class BookList extends Component {
                 </div>
             </div>
         );
-    }
+    
 }
 
 BookList.propTypes = {
