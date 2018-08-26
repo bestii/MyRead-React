@@ -1,6 +1,6 @@
 # MyReads Project
 
-This project as part of Front End Nanodegree Developer II program. MyReads is a bookshelf app that allows you to select and categorize books you have read, are currently reading, or want to read. The project emphasizes using React to build the application and provides an API server and client library that you will use to persist information as you interact with the application.. The purpose of the project is to demonstrate understanding of the basic structure and operation of a React-based app.
+This project as part of Front End Nanodegree Developer II program. MyReads is a bookshelf app that allows you to select and categorize books you have read, are currently reading, or want to read. The project emphasizes using React to build the application and provides an API server and client library that you will use to persist information as you interact with the application. The purpose of the project is to demonstrate understanding of the basic structure and operation of a React-based app.
 
 ## Getting Started
 
