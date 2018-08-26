@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import SelectShelf from './SelectShelf';
 
 function Book(props) {
-    const { book } = props;
+    const { book , changeShelf } = props;
     const coverImg = book.imageLinks && book.imageLinks.thumbnail ? book.imageLinks.thumbnail : "http://books.google.com/books/content?id=PGR2AwAAQBAJ&printsec=frontcover&img=1&zoom=1&imgtk=AFLRE73-GnPVEyb7MOCxDzOYF1PTQRuf6nCss9LMNOSWBpxBrz8Pm2_mFtWMMg_Y1dx92HT7cUoQBeSWjs3oEztBVhUeDFQX6-tWlWz1-feexS0mlJPjotcwFqAg6hBYDXuK_bkyHD-y&source=gbs_api";
     const title = book.title ? book.title : "No title available";
     return (
@@ -13,7 +13,7 @@ function Book(props) {
                     <div className="book-cover"
                         style={{ width: 128, height: 193, backgroundImage: `url(${coverImg})` }}>
                     </div>
-                    <SelectShelf/>
+                    <SelectShelf book={book} changeShelf={changeShelf}/>
                 </div>
                 <div className="book-title">{title}</div>
                     { 
@@ -27,7 +27,8 @@ function Book(props) {
         </li>
     )
 }
-Book.propType = {
-    book: PropTypes.object.isRequired
+Book.propTypes = {
+    book: PropTypes.object.isRequired,
+    changeShelf: PropTypes.func.isRequired
 }
 export default Book;

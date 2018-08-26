@@ -5,7 +5,7 @@ import Bookshelf from './BookShelf';
 
 function BookList(props) {
 
-        const { books } = props;
+        const { books , changeShelf } = props;
         const shelfs = [
             { type: 'currentlyReading', title: 'Currently Reading' },
             { type: 'wantToRead', title: 'Want to Read' },
@@ -21,7 +21,7 @@ function BookList(props) {
                         shelfs.map((shelf, indx) => {
                             const currentShelfBooks = books.filter(book => book.shelf === shelf.type)
                             return (
-                                <Bookshelf key={indx} shelf={shelf} books={currentShelfBooks} />
+                                <Bookshelf key={indx} shelf={shelf} books={currentShelfBooks} changeShelf={ changeShelf }/>
                             )
                         })
                     }
@@ -36,7 +36,8 @@ function BookList(props) {
 }
 
 BookList.propTypes = {
-    books:PropTypes.array.isRequired
+    books:PropTypes.array.isRequired,
+    changeShelf: PropTypes.func.isRequired
 }
 
 export default BookList;

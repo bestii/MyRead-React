@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types'
 import * as BooksAPI from './BooksAPI'
 import Book from './Book';
 
@@ -33,6 +34,7 @@ class Search extends Component {
 
     render() {
         const { query, resultBooks, searchErorr } = this.state;
+        const {changeShelf} = this.props;
         return (
             <div className="search-books">
                 <div className="search-books-bar">
@@ -48,7 +50,7 @@ class Search extends Component {
                     <ol className="books-grid">
                         {
                             resultBooks.map(book => (
-                                <Book key={book.id} book={book} />
+                                <Book key={book.id} book={book} changeShelf={changeShelf}/>
                             ))
                         }
                     </ol>
@@ -65,6 +67,10 @@ class Search extends Component {
             </div>
         );
     }
+}
+
+Search.propTypes={
+    changeShelf: PropTypes.func.isRequired
 }
 
 export default Search;
