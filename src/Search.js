@@ -26,7 +26,7 @@ class Search extends Component {
 
     // Function to search for books
     searchBooks = (event) => {
-        const query = event.target.value.trim();
+        const query = event.target.value;
         this.updateQuery(query);
         if (query) {
             BooksAPI.search(query).then((books) => {
